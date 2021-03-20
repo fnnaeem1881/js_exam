@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <h1 id="CurrentDay"></h1>
+    <h2 id="CurrentTime"></h2>
+    <span id = "result"></span>
+  
+    <form>
+        1st Number : <input type="text" id="firstNumber" /><br>
+        2nd Number: <input type="text" id="secondNumber" /><br>
+        <input type="button" onClick="multiplyBy()" Value="Multiply" />
+        <input type="button" onClick="divideBy()" Value="Divide" />
+        </form>
+
+        <input id="inputFahrenheit" type="number" placeholder="Fahrenheit" oninput="temperatureConverter(this.value)" onchange="temperatureConverter(this.value)">
+    </p>
+    <p>Celcius: <span id="outputCelcius"></span></p>
+        <!-- //////////////////////////////////////////////////////// -->
+    <script>
+        var today = new Date();
+var day = today.getDay();
+var daylist = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"];
+var hour = today.getHours();
+var min = today.getMinutes();
+
+var suffix = (hour >= 12)? " PM" : " AM";
+hour = (hour >= 12)? hour - 12 : hour;
+
+if (hour === "0" && suffix === " PM"){
+  if(min === "0" && sec === "0") {
+    hour = 12;
+    suffix = " Noon";
+  }
+} 
+else if (hour === "0" && suffix === " AM") {
+  if(min === "0" && sec === "0") {
+    hour = 12;
+    suffix = " Midnight";
+  }
+}
+
+var todayHTML = document.getElementById("CurrentDay");
+var timeHTML = document.getElementById("CurrentTime");
+
+todayHTML.innerHTML = " today " + daylist[day];
+timeHTML.innerHTML = "time " + hour + suffix + " " + min;
+
+
+
+
+
+
+function checkLeapYear(year) {
+if ((0 == year % 4) && (0 != year % 100) || (0 == year % 400)) {
+    document.write(year + ' is a leap year');
+} else {
+    document.write(year + ' is not a leap year');
+}
+}
+const year = prompt('Enter a year:');
+
+checkLeapYear(year);
+
+
+
+
+
+
+
+
+function multiplyBy()
+{
+        num1 = document.getElementById("firstNumber").value;
+        num2 = document.getElementById("secondNumber").value;
+        document.getElementById("result").innerHTML = num1 * num2;
+}
+
+function divideBy() 
+{ 
+        num1 = document.getElementById("firstNumber").value;
+        num2 = document.getElementById("secondNumber").value;
+document.getElementById("result").innerHTML = num1 / num2;
+}
+
+
+
+
+function temperatureConverter(valNum) {
+  valNum = parseFloat(valNum);
+  document.getElementById("outputCelcius").innerHTML=(valNum-32)/1.8;
+}
+
+
+
+function difference(n)
+ {
+    if (n <= 13)
+        return 13 - n;
+    else
+        return (n - 13) * 2;
+ }
+document.write(difference(32))
+document.write(difference(11))
+
+function sumTriple (x, y) {
+  if (x == y) {
+    return 3 * (x + y);
+    } 
+   else
+   {
+    return (x + y);
+   }
+ }
+
+ document.write(sumTriple(10, 20));
+ document.write("</br>")
+ document.write(sumTriple(10, 10));
+
+
+
+ function num50(x, y) 
+{
+  return ((x == 50 || y == 50) || (x + y == 50));
+}
+document.write(num50(50, 50))
+document.write("</br>")
+document.write(num50(10, 30))
+
+
+
+
+
+
+function p_n(x, y)
+{
+  if ((x < 0 && y > 0) || x > 0 && y < 0) 
+  {
+    return true;
+  }
+  else 
+  {
+    return false;
+  }
+}
+document.write("</br>")
+document.write(p_n(2, 2));
+document.write("</br>")
+document.write(p_n(-2, 2));
+document.write("</br>")
+document.write(p_n(2, -2));
+document.write("</br>")
+document.write(p_n(-2, -2));
+
+
+
+
+
+function r_c(str, char_pos) 
+ {
+  part1 = str.substring(0, char_pos);
+  part2 = str.substring(char_pos + 1, str.length);
+  return (part1 + part2);
+ }
+ document.write("MehediHasan")
+ document.write("</br>")
+ document.write(r_c("MehediHasan",0));
+document.write("</br>")
+document.write(r_c("MehediHasan",4));
+document.write("</br>")
+document.write(r_c("MehediHasan",7));
+
+
+function check_numbers(x) 
+  {
+  if (x >= 50 && x <= 99)
+  {
+    return true;
+  } 
+  else 
+  {
+    return false;
+  }
+}
+
+document.write(check_numbers(12));
+document.write("</br>")
+document.write(check_numbers(52));
+document.write("</br>")
+document.write(check_numbers(100));
+
+
+
+
+
+
+
+
+
+
+const num1 = parseFloat(prompt("Enter first number: "));
+const num2 = parseFloat(prompt("Enter second number: "));
+const num3 = parseFloat(prompt("Enter third number: "));
+
+
+if(num1 >= num2 && num1 >= num3) {
+    largest = num1;
+}
+else if (num2 >= num1 && num2 >= num3) {
+    largest = num2;
+}
+else {
+    largest = num3;
+}
+
+
+document.write("The largest number is " + largest);
+
+
+
+
+function string_reverse(str) 
+{
+    return str.split("").reverse().join("");
+}
+document.write("MehediHasan")
+
+document.write("</br>")
+document.write(string_reverse("MehediHasan"));
+
+
+function exam_status(totmarks,is_exam)
+  {
+  if (is_exam) {
+    return totmarks >= 90;
+  }
+ return (totmarks >= 89 && totmarks <= 100);
+ }
+
+ document.write(exam_status("78", " "));
+document.write("</br>")
+document.write(exam_status("89", "true "));
+document.write("</br>")
+document.write(exam_status("99", "true "));
+
+    </script>
+</body>
+</html>
